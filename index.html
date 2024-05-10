@@ -25,32 +25,7 @@
     <h1>Workout Tracker</h1>
     <button id="getWorkouts">View Workout Log</button>
     <div id="workout-container"></div>
-    <script>
-        const getWorkoutsButton = document.getElementById('getWorkouts');
-        const workoutContainer = document.getElementById('workout-container');
 
-        getWorkoutsButton.addEventListener('click', async () => {
-            const response = await fetch('./db.js');
-            const responseClone = response.clone(); // Create a copy of the response
-                    
-            console.log(await response.text()); // Log the text content
-                    
-         // Parse JSON data from the original response
-                    
-
-            // Display workout data 
-            workoutContainer.innerHTML = `<h2>Workouts:</h2>`;
-            for (const workout of workouts) {
-                workoutContainer.innerHTML += `
-                    <p>Date: ${workout.date.toLocaleDateString()}</p>
-                    <ul>
-                        ${workout.exercises.map(exercise => `
-                            <li><b>${exercise.name}</b>: ${exercise.sets.map(set => `${set.reps} reps`).join(', ')}</li>
-                        `).join('')}
-                    </ul>
-                `;
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html
